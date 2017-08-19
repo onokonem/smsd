@@ -1,0 +1,15 @@
+{
+ "level": "debug",
+ "encoding": "json",
+ "outputPaths": [
+  "./logs/smsd.log"
+ ],
+ "errorOutputPaths": [
+  "stderr"
+ ],
+ "encoderConfig": {
+   "messageKey": "message",
+   "levelKey": "level",
+   "levelEncoder": "lowercase"
+ }
+}

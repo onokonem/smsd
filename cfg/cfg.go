@@ -46,12 +46,25 @@ func New(path *string, logger *zap.Logger) Cfg {
 	if _, err := toml.DecodeFile(*path, &c); err != nil {
 		panic(err.Error())
 	}
-	if c.Db.User == "" || c.Db.Password == "" || c.Db.Host == "" || c.Db.StorableDb == "" || c.Port == "" || c.Host == "" {
+	if c.Db.User == "" ||
+		c.Db.Password == "" ||
+		c.Db.Host == "" ||
+		c.Db.StorableDb == "" ||
+		c.Port == "" ||
+		c.Host == "" {
 		panic(fmt.Errorf("missing mandatory config parameters"))
 	}
 	for name, options := range c.Esmes {
-		if options.Host == "" || options.Port == 0 || options.SystemId == "" || options.Password == "" || options.SrcAddr == "" {
-			logger.Warn("Missing one or many parameters for oper", zap.String("name", name), zap.Any("time", time.Now().Format(time.RFC3339)))
+		if options.Host == "" ||
+			options.Port == 0 ||
+			options.SystemId == "" ||
+			options.Password == "" ||
+			options.SrcAddr == "" {
+			logger.Warn(
+				"Missing one or many parameters for oper",
+				zap.String("name", name),
+				zap.Any("time", time.Now().Format(time.RFC3339)),
+			)
 			delete(c.Esmes, name)
 			continue
 		}
