@@ -1,0 +1,7 @@
+../../sandbox/smsd/smsd.go:31:6:warning: don't use underscores in Go names; var cfg_log should be cfgLog (golint)
+../../sandbox/smsd/smsd.go:13:2:error: could not import ./cfg (can't find import: cfg) (gotype)
+../../sandbox/smsd/smsd.go:42:9:error: undeclared name: cfg (gotype)
+../../sandbox/smsd/smsd.go:39:19:warning: error return value not checked (defer logger.Sync()) (errcheck)
+../../sandbox/smsd/smsd.go:50:22:warning: error return value not checked (defer listener.Close()) (errcheck)
+../../sandbox/smsd/smsd.go:63:18:warning: error return value not checked (defer conn.Close()) (errcheck)
+../../sandbox/smsd/smsd.go:68:12:warning: error return value not checked (conn.Write([]byte(message))) (errcheck)
